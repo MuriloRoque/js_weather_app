@@ -1,4 +1,7 @@
 import './main.scss';
-require('dotenv').config();
+import Weather from './app/weather'
 
-const apiKey = process.env.API_KEY
+const apiKey = '787b617f19647c87dbce494822b4c8d1';
+
+const weather = new Weather('London', 'metric');
+weather.fetchApi(apiKey);
