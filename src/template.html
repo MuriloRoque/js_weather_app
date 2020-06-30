@@ -13,15 +13,13 @@
       </select>
       <label for="zip">Type your city's ZIP code:</label>
       <input id="zip" type="text">
-      <label for="zip">Select unit type:</label>
-      <select name="unit" id="unit">
-        <option value="metric">Celsius</option>
-        <option value="imperial">Fahrenheit</option>
-      </select>
       <button id="submit">Submit</button>
+      <button class="d-none" id="reset">Reset</button>
     </form>
     <div class="weather-result">
-      <p class="d-none" id="result"></p>
+      <p class="d-none" id="result-celcius"></p>
+      <p class="d-none" id="result-fare"></p>
+      <button class="d-none" id="change">Change to Fahrenheit</button>
       <p class="d-none" id="description"></p>
       <p class="d-none" id="error"></p>
       <img class="d-none" id="icon" src="" alt="weather-icon">

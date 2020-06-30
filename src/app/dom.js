@@ -4,10 +4,13 @@ import { Weather, fetchApi } from './weather';
 const domManipulation = (() => {
   const countriesSelect = document.getElementById('countries');
   const zip = document.getElementById('zip');
-  const unit = document.getElementById('unit');
-  const result = document.getElementById('result');
+  const resultCelcius = document.getElementById('result-celcius');
+  const resultFare = document.getElementById('result-fare');
+  const change = document.getElementById('change');
   const description = document.getElementById('description');
   const error = document.getElementById('error');
+  const reset = document.getElementById('reset');
+  const submit = document.getElementById('submit');
 
   const showImg = (weather) => {
     const img = document.getElementById('icon');
@@ -20,35 +23,59 @@ const domManipulation = (() => {
     const img = document.getElementById('icon');
     error.textContent = data.message;
     error.classList.remove('d-none');
-    result.classList.add('d-none');
+    resultCelcius.classList.add('d-none');
+    resultFare.classList.add('d-none');
     description.classList.add('d-none');
     img.classList.add('d-none');
   };
 
+  const changeButton = () => {
+    change.addEventListener('click', (event) => {
+      event.preventDefault();
+      if(change.textContent === 'Change to Fahrenheit'){
+        change.textContent = 'Change to Celcius';
+        resultCelcius.classList.add('d-none');
+        resultFare.classList.remove('d-none');
+      }
+      else{
+        change.textContent = 'Change to Fahrenheit';
+        resultCelcius.classList.remove('d-none');
+        resultFare.classList.add('d-none');
+      }
+    })
+  }
+
   const showResult = (weather) => {
-    result.classList.remove('d-none');
+    resultCelcius.classList.remove('d-none');
     description.classList.remove('d-none');
     error.classList.add('d-none');
-    if (unit.value === 'metric') {
-      result.textContent = `Temperature: ${weather.temp} °C`;
-    } else {
-      result.textContent = `Temperature: ${weather.temp} °F`;
-    }
+    change.classList.remove('d-none');
+    resultCelcius.textContent = `Temperature: ${weather.tempCelcius} °C`;
+    resultFare.textContent = `Temperature: ${weather.tempFare} °F`;
     description.textContent = `${weather.description}`;
     showImg(weather);
+    changeButton();
   };
 
+  const resetButton = () => {
+    reset.classList.remove('d-none');
+    submit.classList.add('d-none');
+    reset.addEventListener('click', () => {
+      location.reload();
+    })
+  }
+
   const submitForm = () => {
-    const submit = document.getElementById('submit');
     submit.addEventListener('click', (event) => {
       event.preventDefault();
-      let weather = new Weather(countriesSelect.value, zip.value, unit.value);
-      fetchApi(weather).then((data) => {
+      let weather = new Weather(countriesSelect.value, zip.value);
+      fetchApi(weather, 'metric').then((data) => {
         if (data.cod !== undefined) {
           showError(data);
         } else {
           weather = data;
           showResult(weather);
+          resetButton();
         }
       });
     });
