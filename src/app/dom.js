@@ -17,7 +17,8 @@ export const submitForm = () => {
   submit.addEventListener('click', (event) => {
     event.preventDefault();
     const zip = document.getElementById('zip');
-    let weather = new Weather(countriesSelect.value, zip.value, 'metric');
+    const unit = document.getElementById('unit');
+    let weather = new Weather(countriesSelect.value, zip.value, unit.value);
     const result = document.getElementById('result');
     fetchApi(weather).then((data) => {
       weather = data;
