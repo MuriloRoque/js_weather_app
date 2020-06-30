@@ -10,7 +10,7 @@ export class Weather {
 }
 
 export const fetchApi = async (weather) => {
-  const URL = 'http://api.openweathermap.org/data/2.5/weather?';
+  const URL = 'https://api.openweathermap.org/data/2.5/weather?';
   const ZIP = 'zip=';
   const UNITS = '&units=';
   const API = '&appid=';
