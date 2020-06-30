@@ -1,5 +1,6 @@
 import array from "countries-list";
 import { Weather, fetchApi } from './weather'
+import { uniqueSort } from "jquery";
 
 const countriesSelect = document.getElementById('countries');
 
@@ -31,8 +32,13 @@ export const submitForm = () => {
         result.classList.remove('d-none');
         description.classList.remove('d-none');
         error.classList.add('d-none');
-        result.textContent = weather.temp;
-        description.textContent = `Description: ${weather.description}`
+        if(unit.value == 'metric'){
+          result.textContent = `Temperature: ${weather.temp} °C`;
+        }
+        else{
+          result.textContent = `Temperature: ${weather.temp} °F`;
+        }
+        description.textContent = `${weather.description}`
         showImg(weather);
       }
     });

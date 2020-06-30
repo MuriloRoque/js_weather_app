@@ -6,8 +6,8 @@
     <title>Weather App</title>
   </head>
   <body>
-    <h1>Weather App</h1>
     <form>
+      <h1>Weather App</h1>
       <label for="countries">Select your country:</label>
       <select name="countries" id="countries">
       </select>
@@ -20,9 +20,11 @@
       </select>
       <button id="submit">Submit</button>
     </form>
-    <p class="d-none" id="result"></p>
-    <p class="d-none" id="description"></p>
-    <p class="d-none" id="error">Invalid country and/or ZIP code</p>
-    <img class="d-none" id="icon" src="" alt="weather-icon">
+    <div class="weather-result">
+      <p class="d-none" id="result"></p>
+      <p class="d-none" id="description"></p>
+      <p class="d-none" id="error">Invalid country and/or ZIP code</p>
+      <img class="d-none" id="icon" src="" alt="weather-icon">
+    </div>
   </body>
 </html>
