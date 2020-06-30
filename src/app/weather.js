@@ -25,17 +25,16 @@ export const fetchApi = async (weather) => {
   if (responseCelcius.status !== 200) {
     return dataCelcius;
   }
-  else{
-    weather.tempCelcius = dataCelcius.main.temp;
-    const UrlFare = `${URL + ZIP + weather.zip},${weather.country.toLowerCase()}${UNITS}${FARE}${API}${apiKey}`;
-    const responseFare = await fetch(UrlFare, { mode: 'cors' });
-    const dataFare = await responseFare.json();
-    if (responseFare.status !== 200) {
-      return dataFare;
-    }
-    weather.tempFare = dataFare.main.temp;
-    weather.icon = dataFare.weather[0].icon;
-    weather.description = dataFare.weather[0].description;
-    return weather;
+
+  weather.tempCelcius = dataCelcius.main.temp;
+  const UrlFare = `${URL + ZIP + weather.zip},${weather.country.toLowerCase()}${UNITS}${FARE}${API}${apiKey}`;
+  const responseFare = await fetch(UrlFare, { mode: 'cors' });
+  const dataFare = await responseFare.json();
+  if (responseFare.status !== 200) {
+    return dataFare;
   }
+  weather.tempFare = dataFare.main.temp;
+  weather.icon = dataFare.weather[0].icon;
+  weather.description = dataFare.weather[0].description;
+  return weather;
 };

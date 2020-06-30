@@ -32,18 +32,17 @@ const domManipulation = (() => {
   const changeButton = () => {
     change.addEventListener('click', (event) => {
       event.preventDefault();
-      if(change.textContent === 'Change to Fahrenheit'){
+      if (change.textContent === 'Change to Fahrenheit') {
         change.textContent = 'Change to Celcius';
         resultCelcius.classList.add('d-none');
         resultFare.classList.remove('d-none');
-      }
-      else{
+      } else {
         change.textContent = 'Change to Fahrenheit';
         resultCelcius.classList.remove('d-none');
         resultFare.classList.add('d-none');
       }
-    })
-  }
+    });
+  };
 
   const showResult = (weather) => {
     resultCelcius.classList.remove('d-none');
@@ -60,10 +59,8 @@ const domManipulation = (() => {
   const resetButton = () => {
     reset.classList.remove('d-none');
     submit.classList.add('d-none');
-    reset.addEventListener('click', () => {
-      location.reload();
-    })
-  }
+    reset.addEventListener('click', () => false);
+  };
 
   const submitForm = () => {
     submit.addEventListener('click', (event) => {
