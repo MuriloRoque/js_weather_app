@@ -1,31 +1,37 @@
-body{
+body {
   background: url(https://s32519.pcdn.co/wp-content/uploads/2019/12/towards-a-weather-proactive-supply-chain-hero-image-2272x960px.jpg.optimal.jpg);
   text-align: center;
   min-width: 400px;
-  form{
+
+  form {
     font-size: 20px;
     color: #12026b;
     padding-top: 0;
     margin-bottom: 20px;
-    h1{
+
+    h1 {
       margin-top: 0;
       font-size: 40px;
       color: #12026b;
       font-family: Arial, Helvetica, sans-serif;
     }
-    label{
+
+    label {
       display: block;
       margin: 15px 0 3px 0;
     }
-    input{
+
+    input {
       height: 20px;
       padding-left: 5px;
     }
-    select{
+
+    select {
       padding: 1px;
       color: inherit;
     }
-    button{
+
+    button {
       background-color: #0c799bb7;
       border: 1px solid #12026b;
       display: block;
@@ -38,25 +44,29 @@ body{
       cursor: pointer;
     }
   }
-  #error{
+
+  #error {
     font-size: 20px;
     color: #f30b0b;
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
   }
-  .weather-result{
+
+  .weather-result {
     color: #12026b;
-    p{
+
+    p {
       margin-top: 0;
       font-size: 20px;
       text-transform: capitalize;
     }
-    img{
+
+    img {
       width: 100px;
     }
   }
 }
 
-.d-none{
+.d-none {
   display: none;
 }
