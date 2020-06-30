@@ -21,7 +21,7 @@ In this project I:
 
 ## Live Demo
 
-[Click here](https://rawcdn.githack.com/MuriloRoque/js_weather_app/59faf0f4c8001c03c8b33f70d68f1cd05c836257/dist/index.html)
+[Click here](https://rawcdn.githack.com/MuriloRoque/js_weather_app/db11615bcd1a1831b2f72862ab11c4dae12dbf9c/dist/index.html)
 
 ## Getting Started
 
