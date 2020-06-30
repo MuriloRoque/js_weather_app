@@ -1,5 +1,4 @@
 import './main.scss';
-import { fillCountries, submitForm } from './app/dom'
+import domManipulation from './app/dom'
 
-fillCountries();
-submitForm();
+domManipulation.fillCountries();
