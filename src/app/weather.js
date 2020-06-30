@@ -26,6 +26,6 @@ export const fetchApi = async (weather) => {
 		return weather;
 
 	}catch(err){
-		console.log("API ERROR : " + err);
+		return err;
 	}
 }

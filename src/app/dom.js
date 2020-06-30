@@ -21,11 +21,20 @@ export const submitForm = () => {
     let weather = new Weather(countriesSelect.value, zip.value, unit.value);
     const result = document.getElementById('result');
     const description = document.getElementById('description');
+    const error = document.getElementById('error');
     fetchApi(weather).then((data) => {
-      weather = data;
-      result.textContent = weather.temp;
-      description.textContent = `Description: ${weather.description}`
-      showImg(weather);
+      if(data.temp == undefined){
+        showError(result, description);
+      }
+      else{
+        weather = data;
+        result.classList.remove('d-none');
+        description.classList.remove('d-none');
+        error.classList.add('d-none');
+        result.textContent = weather.temp;
+        description.textContent = `Description: ${weather.description}`
+        showImg(weather);
+      }
     });
   });
 }
@@ -34,4 +43,13 @@ const showImg = (weather) => {
   const img = document.getElementById('icon');
   img.classList.remove('d-none');
   img.src = `http://openweathermap.org/img/wn/${weather.icon}@2x.png`;
+}
+
+const showError = (result, description) => {
+  const error = document.getElementById('error');
+  const img = document.getElementById('icon');
+  error.classList.remove('d-none');
+  result.classList.add('d-none');
+  description.classList.add('d-none');
+  img.classList.add('d-none');
 }
