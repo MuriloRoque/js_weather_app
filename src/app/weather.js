@@ -3,7 +3,9 @@ export class Weather{
 		this.country = country,
 		this.zip = zip,
     this.unit = unit,
-		this.temp = ''
+		this.temp = '',
+		this.icon = '',
+		this.description
 	}
 }
 
@@ -19,6 +21,8 @@ export const fetchApi = async (weather) => {
 		const response = await fetch(currentUrl, { mode: 'cors' });
 		const data = await response.json();
 		weather.temp = data.main.temp;
+		weather.icon = data.weather[0].icon;
+		weather.description = data.weather[0].description;
 		return weather;
 
 	}catch(err){

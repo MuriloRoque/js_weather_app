@@ -6,14 +6,14 @@
     <title>Weather App</title>
   </head>
   <body>
-    <h1>Welcome to the Weather App</h1>
+    <h1>Weather App</h1>
     <form>
-      <label for="countries">Please, select your country:</label>
+      <label for="countries">Select your country:</label>
       <select name="countries" id="countries">
       </select>
-      <label for="zip">Please, type your ZIP code</label>
+      <label for="zip">Type your ZIP code:</label>
       <input id="zip" type="text">
-      <label for="zip">Select display type</label>
+      <label for="zip">Select unit type:</label>
       <select name="unit" id="unit">
         <option value="metric">Celsius</option>
         <option value="imperial">Fahrenheit</option>
@@ -21,5 +21,7 @@
       <button id="submit">Submit</button>
     </form>
     <p id="result"></p>
+    <p id="description"></p>
+    <img class="d-none" id="icon" src="" alt="weather-icon">
   </body>
 </html>

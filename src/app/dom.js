@@ -20,9 +20,18 @@ export const submitForm = () => {
     const unit = document.getElementById('unit');
     let weather = new Weather(countriesSelect.value, zip.value, unit.value);
     const result = document.getElementById('result');
+    const description = document.getElementById('description');
     fetchApi(weather).then((data) => {
       weather = data;
       result.textContent = weather.temp;
+      description.textContent = `Description: ${weather.description}`
+      showImg(weather);
     });
   });
+}
+
+const showImg = (weather) => {
+  const img = document.getElementById('icon');
+  img.classList.remove('d-none');
+  img.src = `http://openweathermap.org/img/wn/${weather.icon}@2x.png`;
 }
